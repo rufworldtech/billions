@@ -42,22 +42,25 @@
 <body>
 
   <!-- Hardcoded styled header -->
-  <header class="enterprise-header">
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <span style="font-size: 24px; font-weight: 800; tracking-spacing: -1px;">RUFWORLD TECH</span>
+    <!-- Mobile-Optimized Enterprise Header Navigation -->
+  <header style="background-color: #0f172a; padding: 15px 20px; border-bottom: 1px solid #334155; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+    
+    <!-- Top Line: Brand Name & Button -->
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+      <span style="font-size: 20px; font-weight: 800; tracking-spacing: -1px; color: #ffffff;">RUFWORLD TECH</span>
+      <a href="#portal" class="portal-btn" style="font-size: 13px; padding: 8px 16px;">Engage Portal →</a>
     </div>
 
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#ai-solutions">AI Solutions</a>
-      <a href="#infrastructure">Infrastructure</a>
-      <a href="#company">Company</a>
+    <!-- Bottom Line: Clean, Centered Menu Links -->
+    <nav style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; row-gap: 8px; width: 100%;">
+      <a href="#services" style="font-size: 14px; margin: 0;">Services</a>
+      <a href="#ai-solutions" style="font-size: 14px; margin: 0;">AI Solutions</a>
+      <a href="#infrastructure" style="font-size: 14px; margin: 0;">Infrastructure</a>
+      <a href="#company" style="font-size: 14px; margin: 0;">Company</a>
     </nav>
 
-    <div>
-      <a href="#portal" class="portal-btn">Engage Portal →</a>
-    </div>
   </header>
+
     <!-- Enterprise Hero Section -->
   <main style="max-w: 1200px; margin: 0 auto; padding: 100px 20px; text-align: center;">
     
