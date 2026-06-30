@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Onboarding Portal | RUF WORLD TECH</title>
+  <style>
+    body {
+      background-color: #020617;
+      color: #ffffff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .form-container {
+      max-width: 650px;
+      margin: 0 auto;
+      background-color: #0f172a;
+      border: 1px solid #1e293b;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    p { color: #94a3b8; font-size: 14px; margin-bottom: 30px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      background-color: #020617;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+    .submit-btn {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+    .submit-btn:hover { background-color: #1d4ed8; }
+    .back-link { display: block; text-align: center; margin-top: 20px; color: #64748b; font-size: 13px; text-decoration: none; }
+    .back-link:hover { color: #38bdf8; }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <div style="text-align: center; margin-bottom: 30px;">
+      <span style="font-size: 24px; font-weight: 800; color: #2563eb;">RUFWORLD <span style="color:white">TECH</span></span>
+    </div>
+    
+    <h1>Enterprise Infrastructure Intake</h1>
+    <p>Specify your system scale configurations to route your request to our procurement desk.</p>
+
+    <!-- Formspree Integration (100% Free Form Processing) -->
+    <form action="https://formspree.io" method="POST">
+      
+      <div class="form-group">
+        <label for="company">Corporate Entity Name</label>
+        <input type="text" id="company" name="company" placeholder="e.g., Kamoa Copper SA" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Authorized Corporate Email</label>
+        <input type="email" id="email" name="_replyto" placeholder="name@company.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="service">Required Infrastructure Vector</label>
+        <select id="service" name="service">
+          <option value="custom-llm">Private Foundational LLM Development</option>
+          <option value="cloud-cluster">Hyper-Scale Multi-Region Clusters</option>
+          <option value="security-fraud">Zero-Trust Security & Fraud Mitigation</option>
+          <option value="automation-etl">Autonomous Workflow Orchestration</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="scale">Estimated Monthly Compute Scale</label>
+        <select id="scale" name="scale">
+          <option value="tier1">Standard Cloud Capacity (< $50k/mo)</option>
+          <option value="tier2">Enterprise Mid-Scale Tier ($50k - $250k/mo)</option>
+          <option value="tier3">Hyper-Scale Institutional Core ($250k+/mo)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="requirements">Deployment Architecture Scope & Details</label>
+        <textarea id="requirements" name="requirements" rows="4" placeholder="Outline performance metrics, compliance restrictions, or processing bounds required..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Initialize Deployment Review →</button>
+    </form>
+
+    <a href="index.html" class="back-link">← Return to Architecture Overview</a>
+  </div>
+
+</body>
+</html>
