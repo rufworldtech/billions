@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusNet | Enterprise Telecom Core & Infrastructure Analytics</title>
+  <style>
+    body { background-color: #020617; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 24px; }
+    .dashboard-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 24px; }
+    .sidebar { background-color: #0f172a; border: 1px solid #1e293b; padding: 24px; border-radius: 12px; height: fit-content; }
+    .brand-title { font-size: 20px; font-weight: 800; color: #38bdf8; margin: 0 0 4px 0; letter-spacing: 0.5px; }
+    .brand-subtitle { font-size: 11px; color: #64748b; margin: 0 0 32px 0; text-transform: uppercase; }
+    .nav-list { list-style: none; padding: 0; margin: 0; }
+    .nav-item { padding: 12px 16px; border-radius: 8px; font-size: 14px; color: #94a3b8; margin-bottom: 8px; cursor: pointer; font-weight: 500; }
+    .nav-item.active { background-color: #1e293b; color: #38bdf8; border-left: 4px solid #38bdf8; }
+    .main-content { display: flex; flex-direction: column; gap: 24px; }
+    .top-bar { background-color: #0f172a; border: 1px solid #1e293b; padding: 20px 24px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; }
+    .system-status { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #22c55e; }
+    .pulse-dot { width: 8px; height: 8px; background-color: #22c55e; border-radius: 50%; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); animation: pulse 1.6s infinite; }
+    @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .metric-card { background-color: #0f172a; border: 1px solid #1e293b; padding: 20px; border-radius: 12px; }
+    .metric-label { font-size: 12px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .metric-value { font-size: 24px; font-weight: 700; margin: 8px 0 4px 0; color: #f1f5f9; }
+    .metric-trend { font-size: 12px; color: #22c55e; font-weight: 500; }
+    .chart-section { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+    .data-box { background-color: #0f172a; border: 1px solid #1e293b; padding: 24px; border-radius: 12px; }
+    .box-header { font-size: 16px; font-weight: 700; margin: 0 0 16px 0; color: #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
+    .node-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+    .node-table th { color: #64748b; font-weight: 600; padding: 12px 8px; border-bottom: 1px solid #1e293b; text-transform: uppercase; font-size: 11px; }
+    .node-table td { padding: 14px 8px; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
+    .badge-online { background-color: rgba(34,197,94,0.1); color: #22c55e; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 11px; }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <!-- Sidebar Navigation Shell -->
+    <div class="sidebar">
+      <div class="brand-title">NEXUSNET</div>
+      <div class="brand-subtitle">Core Infrastructure Node</div>
+      <ul class="nav-list">
+        <li class="nav-item active">Network Overview</li>
+        <li class="nav-item">Cellular Clusters</li>
+        <li class="nav-item">Data Routing Log</li>
+        <li class="nav-item">System Topology</li>
+      </ul>
+    </div>
+
+    <!-- Main Live Management System Display -->
+    <div class="main-content">
+      <div class="top-bar">
+        <div>
+          <h2 style="margin: 0 0 4px 0; font-size: 20px; font-weight: 700;">Infrastructure Core Monitor</h2>
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Real-time analysis matrix of active cellular traffic loads</p>
+        </div>
+        <div class="system-status">
+          <div class="pulse-dot"></div>
+          CORE PROTOCOLS ONLINE
+        </div>
+      </div>
+
+      <!-- High-Throughput Quantitative Performance Indicators -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Total Data Handled</div>
+          <div class="metric-value">4.2 PB</div>
+          <div class="metric-trend">↑ 14.2% This Quarter</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Active Node Clusters</div>
+          <div class="metric-value">1,420</div>
+          <div class="metric-trend">99.98% Operational Efficiency</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Concurrent Edge Connections</div>
+          <div class="metric-value">3.1M</div>
+          <div class="metric-trend">↑ 8.4% Peak Load Shifts</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Network Latency Index</div>
+          <div class="metric-value">12.4 ms</div>
+          <div class="metric-trend" style="color: #22c55e;">Stable System Variance</div>
+        </div>
+      </div>
+
+      <!-- Regional Infrastructure Load Allocation Analysis -->
+      <div class="chart-section">
+        <div class="data-box">
+          <div class="box-header">Regional Cell Tower Core Cluster Metrics</div>
+          <table class="node-table">
+            <thead>
+              <tr>
+                <th>Cluster Sector Identification</th>
+                <th>Active Base Load</th>
+                <th>Peak Bandwidth Capacity</th>
+                <th>Node Verification Registry</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sector-Gombe-A1</td>
+                <td>742 TB / hr</td>
+                <td>88.4% Allocated Volume</td>
+                <td><span class="badge-online">Operational</span></td>
+              </tr>
+              <tr>
+                <td>Sector-Limete-B4</td>
+                <td>512 TB / hr</td>
+                <td>61.2% Allocated Volume</td>
+                <td><span class="badge-online">Operational</span></td>
+              </tr>
+              <tr>
+                <td>Sector-Lubumbashi-Core</td>
+                <td>1.1 PB / hr</td>
+                <td>91.7% Allocated Volume</td>
+                <td><span class="badge-online">Operational</span></td>
+              </tr>
+              <tr>
+                <td>Sector-Ngaliema-C2</td>
+                <td>389 TB / hr</td>
+                <td>44.1% Allocated Volume</td>
+                <td><span class="badge-online">Operational</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="data-box">
+          <div class="box-header">Network Incident Queue</div>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+            <div style="border-left: 3px solid #22c55e; padding-left: 12px; font-size: 13px;">
+              <div style="font-weight:600; color:#f1f5f9;">Automatic Failover Executed</div>
+              <div style="color:#64748b; font-size:11px; margin-top:2px;">Sector-Gombe-A1 node link safe</div>
+            </div>
+            <div style="border-left: 3px solid #38bdf8; padding-left: 12px; font-size: 13px;">
+              <div style="font-weight:600; color:#f1f5f9;">Database Optimization Done</div>
+              <div style="color:#64748b; font-size:11px; margin-top:2px;">Core storage cluster limits expanded</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
