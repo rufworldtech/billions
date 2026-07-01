@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduSecure | Institutional Student Records & Ledger Verification</title>
+  <style>
+    body { background-color: #0b0f19; color: #f1f5f9; font-family: system-ui, sans-serif; margin: 0; padding: 30px 20px; }
+    .portal-box { max-width: 1200px; margin: 0 auto; background-color: #111827; border: 1px solid #1f2937; border-radius: 12px; padding: 32px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
+    .top-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2937; padding-bottom: 24px; margin-bottom: 32px; }
+    .institution-tag { background-color: #1e1b4b; color: #818cf8; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .search-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+    input, select { width: 100%; padding: 14px; background-color: #0b0f19; border: 1px solid #374151; border-radius: 8px; color: #f3f4f6; font-size: 14px; box-sizing: border-box; }
+    input:focus, select:focus { outline: none; border-color: #6366f1; }
+    .main-btn { background-color: #4f46e5; color: white; border: none; padding: 14px; font-weight: 700; border-radius: 8px; cursor: pointer; font-size: 14px; }
+    .main-btn:hover { background-color: #4338ca; }
+    .table-container { background-color: #0b0f19; border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; }
+    .data-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+    .data-table th { background-color: #1f2937; color: #9ca3af; font-weight: 600; padding: 16px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .data-table td { padding: 16px; border-bottom: 1px solid #1f2937; color: #e5e7eb; }
+    .status-active { color: #10b981; font-weight: 600; background-color: rgba(16,185,129,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+    .ledger-badge { font-family: monospace; color: #a5b4fc; font-size: 12px; background-color: #1e1b4b; padding: 4px 8px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <div class="portal-box">
+    <div class="top-header">
+      <div>
+        <h1 style="margin: 0 0 6px 0; font-size: 26px; color: #ffffff; font-weight: 800;">EduSecure Matrix</h1>
+        <p style="margin: 0; font-size: 14px; color: #9ca3af;">Centralized Student Registry & Academic Ledger Identity Verification Node</p>
+      </div>
+      <div class="institution-tag">Academic Administration</div>
+    </div>
+
+    <!-- Interactive Registry Filtering System -->
+    <div class="search-row">
+      <input type="text" placeholder="Search by Student ID, Full Name, or Registry Vector..." value="Mutondo Ruffin">
+      <select>
+        <option>Faculty of Engineering / Computer Science</option>
+        <option>Faculty of Infrastructure Law</option>
+        <option>Faculty of Economic Systems</option>
+      </select>
+      <button class="main-btn">Query Academic Database</button>
+    </div>
+
+    <!-- Student Record Table Matrix -->
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Student Identity & ID</th>
+            <th>Enrolled Academic Faculty</th>
+            <th>Registration Status</th>
+            <th>Secure Ledger Verification Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight: 600; color: #ffffff;">Ruffin Mutondo<br><span style="font-size: 11px; color:#6b7280; font-weight:400;">ID: #DRC-2026-8841</span></td>
+            <td>Computer Science & Advanced Network Protocols</td>
+            <td><span class="status-active">Verified Active</span></td>
+            <td><span class="ledger-badge">sha256:9af8c2e...</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 600; color: #ffffff;">Kapinga Sarah<br><span style="font-size: 11px; color:#6b7280; font-weight:400;">ID: #DRC-2026-1102</span></td>
+            <td>Distributed Systems & Database Scalability</td>
+            <td><span class="status-active">Verified Active</span></td>
+            <td><span class="ledger-badge">sha256:4b21e8d...</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 600; color: #ffffff;">Ilunga Jean-Luc<br><span style="font-size: 11px; color:#6b7280; font-weight:400;">ID: #DRC-2026-3049</span></td>
+            <td>Information Security & Cryptographic Auditing</td>
+            <td><span class="status-active">Verified Active</span></td>
+            <td><span class="ledger-badge">sha256:7c91a3f...</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
