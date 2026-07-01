@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AeroFreight | Global Supply Chain & Logistics Operations</title>
+  <style>
+    body { background-color: #0b1329; color: #f8fafc; font-family: system-ui, sans-serif; margin: 0; padding: 24px; }
+    .logistics-container { max-width: 1200px; margin: 0 auto; background-color: #1c2541; border: 1px solid #3b82f6; border-radius: 12px; padding: 32px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+    .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #3b82f6; padding-bottom: 20px; margin-bottom: 30px; }
+    .brand { font-size: 24px; font-weight: 800; color: #60a5fa; letter-spacing: 1px; }
+    .status-badge { background-color: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid #22c55e; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+    .tracking-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+    .card { background-color: #0b1329; border: 1px solid #1e293b; padding: 24px; border-radius: 8px; }
+    .manifest-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; margin-top: 15px; }
+    .manifest-table th { color: #94a3b8; font-weight: 600; padding: 12px; border-bottom: 1px solid #1e293b; text-transform: uppercase; font-size: 11px; }
+    .manifest-table td { padding: 14px 12px; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
+    .input-box { width: 100%; padding: 12px; background-color: #0b1329; border: 1px solid #3b82f6; border-radius: 6px; color: white; margin-bottom: 16px; box-sizing: border-box; }
+    .action-btn { background-color: #3b82f6; color: white; border: none; padding: 14px; font-weight: 700; border-radius: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
+    .action-btn:hover { background-color: #2563eb; }
+  </style>
+</head>
+<body>
+
+  <div class="logistics-container">
+    <div class="header">
+      <div class="brand">AEROFREIGHT LOGISTICS</div>
+      <div class="status-badge">GLOBAL ROUTING ACTIVE</div>
+    </div>
+
+    <div class="tracking-grid">
+      <!-- Active Shipping Manifest Control -->
+      <div class="card">
+        <h3 style="margin-top:0; color:#60a5fa;">Active Cargo Manifest</h3>
+        <table class="manifest-table">
+          <thead>
+            <tr>
+              <th>Tracking ID</th>
+              <th>Destination Hub</th>
+              <th>Cargo Load Weight</th>
+              <th>Transit Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-family: monospace; color:#60a5fa;">#TRK-9841-A</td>
+              <td>Kinshasa Ndjili (FIH)</td>
+              <td>14.2 Tons (Mining Eq.)</td>
+              <td style="color:#4ade80;">In Flight</td>
+            </tr>
+            <tr>
+              <td style="font-family: monospace; color:#60a5fa;">#TRK-1102-B</td>
+              <td>Lubumbashi (FBM)</td>
+              <td>8.5 Tons (Telecom Tech)</td>
+              <td style="color:#60a5fa;">Processing Hub</td>
+            </tr>
+            <tr>
+              <td style="font-family: monospace; color:#60a5fa;">#TRK-3049-C</td>
+              <td>Antwerp Port Hub (ANR)</td>
+              <td>22.1 Tons (Refined Core)</td>
+              <td style="color:#f59e0b;">Customs Clearance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Quick Dispatch Control Panel -->
+      <div class="card">
+        <h3 style="margin-top:0; color:#60a5fa;">Cargo Tracking Portal</h3>
+        <p style="font-size:12px; color:#94a3b8; margin-bottom:15px;">Input vector tracking sequences to retrieve instant satellite manifest metrics.</p>
+        <input type="text" class="input-box" placeholder="Enter Global Tracking ID..." value="#TRK-9841-A">
+        <button class="action-btn">Query Satellite Hub</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
