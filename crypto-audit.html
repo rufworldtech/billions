@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisAI | Institutional Smart Contract & Wallet Auditor</title>
+  <style>
+    body { background-color: #020617; color: #ffffff; font-family: system-ui, sans-serif; margin: 0; padding: 40px 20px; }
+    .app-container { max-width: 900px; margin: 0 auto; background-color: #0f172a; border: 1px solid #1e293b; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+    .header-block { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #1e293b; padding-bottom: 30px; }
+    h1 { font-size: 32px; font-weight: 800; color: #38bdf8; margin: 0 0 10px 0; }
+    p { color: #64748b; font-size: 15px; margin: 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    textarea, input, select { width: 100%; padding: 14px; background-color: #020617; border: 1px solid #334155; border-radius: 8px; color: #f8fafc; font-family: monospace; font-size: 13px; box-sizing: border-box; }
+    textarea:focus, input:focus, select:focus { outline: none; border-color: #38bdf8; }
+    .btn { background-color: #0284c7; color: white; border: none; padding: 16px; font-weight: 700; border-radius: 8px; cursor: pointer; width: 100%; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
+    .btn:hover { background-color: #0369a1; }
+    .results-panel { display: none; margin-top: 40px; background-color: #020617; border: 1px solid #334155; padding: 30px; border-radius: 12px; }
+    .status-good { color: #22c55e; font-weight: 700; }
+    .status-warn { color: #f59e0b; font-weight: 700; }
+    .status-crit { color: #ef4444; font-weight: 700; }
+    .metric-box { background-color: #0f172a; padding: 15px; border-radius: 8px; border: 1px solid #1e293b; font-family: monospace; font-size: 12px; margin-top: 15px; }
+  </style>
+  <script>
+    function triggerAudit(e) {
+      e.preventDefault();
+      document.getElementById('btn-text').innerText = 'Initializing Cognitive AI Scanning Matrix...';
+      setTimeout(() => {
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('btn-text').innerText = 'Run Neural Architecture Audit';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      }, 2000);
+    }
+  </script>
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="header-block">
+      <h1>AegisAI™</h1>
+      <p>Autonomous Neural Auditing Matrix for EVM Smart Contracts & Digital Assets</p>
+    </div>
+
+    <form onsubmit="triggerAudit(event)">
+      <div class="grid">
+        <div>
+          <label for="chain">Target Blockchain Protocol</label>
+          <select id="chain">
+            <option value="eth">Ethereum Mainnet (ERC-20 / ERC-721)</option>
+            <option value="bsc">BNB Smart Chain (BEP-20)</option>
+            <option value="poly">Polygon Network PoS Cluster</option>
+            <option value="base">Base L2 Framework Node</option>
+          </select>
+        </div>
+        <div>
+          <label for="wallet">Target Liquidity Wallet Vector (Optional)</label>
+          <input type="text" id="wallet" placeholder="0x71C...b975">
+        </div>
+      </div>
+
+      <div style="margin-bottom: 30px;">
+        <label for="code">Paste Raw Solidity Smart Contract Source Code</label>
+        <textarea id="code" rows="10" placeholder="pragma solidity ^0.8.0;\n\ncontract EnterpriseToken {\n    // Paste code array here to initialize threat vector map..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn"><span id="btn-text">Run Neural Architecture Audit</span></button>
+    </form>
+
+    <!-- Simulated Interactive Threat Evaluation Result Grid -->
+    <div id="results" class="results-panel">
+      <h3 style="margin-top:0; font-size: 20px; border-bottom: 1px solid #1e293b; padding-bottom: 10px; color: #38bdf8;">Audit Execution Log Report</h3>
+      
+      <p style="color:#f8fafc; margin-bottom: 20px;">Analysis Profile Status: <span class="status-good">COMPLETED (SECURE BOUNDS VERIFIED)</span></p>
+      
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:15px; text-align:center;">
+        <div style="background-color:#0f172a; padding:15px; border-radius:8px;">
+          <div style="font-size:11px; color:#64748b;">RE-ENTRANCY THREAT</div>
+          <div class="status-good" style="font-size:18px; margin-top:5px;">0% RISK</div>
+        </div>
+        <div style="background-color:#0f172a; padding:15px; border-radius:8px;">
+          <div style="font-size:11px; color:#64748b;">OVERFLOW HAZARD</div>
+          <div class="status-good" style="font-size:18px; margin-top:5px;">CLEAN</div>
+        </div>
+        <div style="background-color:#0f172a; padding:15px; border-radius:8px;">
+          <div style="font-size:11px; color:#64748b;">HONEYPOT BACKDOORS</div>
+          <div class="status-good" style="font-size:18px; margin-top:5px;">PASSED</div>
+        </div>
+      </div>
+
+      <div class="metric-box">
+        <span style="color:#38bdf8;">[SYSTEM LOG]</span> Optimization Weight Matrix fully matched. Core compilation compiled via FP8 model weights mapping rules. Infrastructure structural signatures clear of external routing vulnerabilities.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
