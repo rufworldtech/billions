@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AvenPay Express | Cartes Virtuelles & Transferts Internationaux</title>
+  <style>
+    body { background-color: #030712; color: #f3f4f6; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; }
+    .app-viewport { width: 100%; max-width: 440px; min-height: 100vh; background-color: #0b1329; border-left: 1px solid #1e293b; border-right: 1px solid #1e293b; display: flex; flex-direction: column; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); box-sizing: border-box; }
+    .app-header { padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; background-color: #111d3a; }
+    .brand-logo { font-size: 20px; font-weight: 900; color: #38bdf8; letter-spacing: 0.5px; }
+    .network-badge { background-color: rgba(56,189,248,0.1); padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; color: #38bdf8; border: 1px solid rgba(56,189,248,0.2); }
+    .content-area { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; gap: 24px; }
+    
+    /* Elegant Virtual Credit Card Styling */
+    .v-card-mesh { background: linear-gradient(135deg, #1e1b4b 0%, #311042 50%, #4c0519 100%); border: 1px solid rgba(255,255,255,0.1); padding: 24px; border-radius: 16px; position: relative; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); overflow: hidden; }
+    .v-card-mesh::before { content: ''; position: absolute; top: -50%; right: -20%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%); }
+    .card-label { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .card-balance { font-size: 32px; font-weight: 800; color: #ffffff; margin-top: 4px; font-family: monospace; }
+    .card-num { font-size: 16px; font-weight: 700; color: #cbd5e1; letter-spacing: 2px; font-family: monospace; margin-top: 24px; }
+    .card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 12px; color: #94a3b8; font-family: monospace; }
+    
+    /* Utility Actions Grid */
+    .section-title { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 12px 0; }
+    .merchant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .merchant-item { background-color: #111d3a; border: 1px solid #1e293b; padding: 16px; border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.2s; }
+    .merchant-item:hover { border-color: #38bdf8; background-color: rgba(56,189,248,0.02); }
+    .merchant-icon { font-size: 24px; margin-bottom: 8px; }
+    .merchant-name { font-size: 14px; font-weight: 700; color: #ffffff; }
+    .merchant-desc { font-size: 11px; color: #64748b; margin-top: 4px; }
+    
+    .status-panel { display: none; background-color: rgba(16,185,129,0.05); border: 1px solid #10b981; padding: 16px; border-radius: 10px; text-align: center; font-size: 13px; color: #10b981; font-weight: 600; }
+  </style>
+  <script>
+    function triggerSubscription(platform, cost) {
+      const panel = document.getElementById('status-block');
+      panel.innerText = `💳 Paiement de $${cost} USD autorisé pour ${platform} via votre Carte Virtuelle AvenPay Express !`;
+      panel.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</head>
+<body>
+
+  <div class="app-viewport">
+    <!-- Main Application Top Header -->
+    <div class="app-header">
+      <div class="brand-logo">AVENPAY EXPRESS</div>
+      <div class="network-badge">🇨🇩 Global Node Active</div>
+    </div>
+
+    <div class="content-area">
+      <!-- Live Dynamic Status Panel Notification -->
+      <div id="status-block" class="status-panel"></div>
+
+      <!-- Turnkey Virtual Dollar Card Interface -->
+      <div>
+        <h4 class="section-title">Votre Carte Virtuelle Visa</h4>
+        <div class="v-card-mesh">
+          <div class="card-label">Solde Disponible</div>
+          <div class="card-balance">$112.50 <span style="font-size:14px; color:#10b981;">USD</span></div>
+          <div class="card-num">••••  ••••  ••••  4982</div>
+          <div class="card-meta">
+            <div>EXP: 08/29</div>
+            <div style="font-weight: 800; font-style: italic; color: #ffffff; font-size: 14px;">VISA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Merchant Subscription Gateway Interface Matrix -->
+      <div>
+        <h4 class="section-title">Paiements & Abonnements Internationaux</h4>
+        <div class="merchant-grid">
+          
+          <!-- Merchant Card 1: Netflix -->
+          <div class="merchant-item" onclick="triggerSubscription('Netflix Premium', '11.99')">
+            <div class="merchant-icon">🎬</div>
+            <div class="merchant-name">Netflix RDC</div>
+            <div class="merchant-desc">Renouveler l'abonnement mensuel • $11.99</div>
+          </div>
+
+          <!-- Merchant Card 2: Amazon -->
+          <div class="merchant-item" onclick="triggerSubscription('Amazon Prime / Store', '14.99')">
+            <div class="merchant-icon">📦</div>
+            <div class="merchant-name">Amazon Store</div>
+            <div class="merchant-desc">Acheter des biens ou s'abonner • Varié</div>
+          </div>
+
+          <!-- Merchant Card 3: Google Play -->
+          <div class="merchant-item" onclick="triggerSubscription('Google Play Apps', '4.99')">
+            <div class="merchant-icon">🤖</div>
+            <div class="merchant-name">Google Play</div>
+            <div class="merchant-desc">Applications et espace cloud • $4.99</div>
+          </div>
+
+          <!-- Merchant Card 4: Apple Services -->
+          <div class="merchant-item" onclick="triggerSubscription('Apple iCloud / Music', '2.99')">
+            <div class="merchant-icon">🍏</div>
+            <div class="merchant-name">Apple iCloud</div>
+            <div class="merchant-desc">Stockage de données iOS • $2.99</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
