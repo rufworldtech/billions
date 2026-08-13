@@ -1,0 +1,650 @@
+A<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&P Elite Management | Universal Athlete Pipeline</title>
+    <style>
+        /* Global Reset & Corporate Identity Theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Responsive Executive Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        nav ul a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #475569;
+            transition: color 0.3s;
+        }
+        nav ul a:hover {
+            color: #0f172a;
+        }
+        .btn-header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-header:hover {
+            background-color: #1e293b;
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            padding: 80px 5% 60px 5%;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 35px;
+        }
+
+        /* Pipeline Operational Trust Metrics */
+        .metrics-section {
+            background-color: #f8f9fa;
+            padding: 50px 5%;
+            border-top: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .metrics-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        .metric-card h3 {
+            font-size: 1.2rem;
+            color: #0f172a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .metric-card h3::before {
+            content: "✓";
+            color: #2563eb;
+            font-weight: bold;
+        }
+        .metric-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* Active Roster Grid Section */
+        .roster-section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+        .section-header p {
+            color: #475569;
+        }
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+
+        /* Athlete Profile Card CSS */
+        .athlete-card {
+            background-color: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s;
+        }
+        .athlete-card:hover {
+            border-color: #2563eb;
+        }
+       
+        /* Two-Column Media Showcase Inside Card */
+        .media-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .photo-box {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-box {
+            width: 100%;
+            height: 100%;
+        }
+        .video-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+       
+        .athlete-info {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        .athlete-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #2563eb;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .athlete-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+        .stats-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .stats-list li {
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .stats-list li span:first-child {
+            color: #64748b;
+        }
+        .stats-list li span:last-child {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .scout-notes {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+        .scout-notes h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+        .scout-notes p {
+            font-size: 0.9rem;
+            color: #334155;
+        }
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 0 25px 25px 25px;
+        }
+        .btn-card {
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-card-registry {
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+        .btn-card-registry:hover {
+            background-color: #1e293b;
+        }
+        .btn-card-dossier {
+            background-color: transparent;
+            border: 1px solid #2563eb;
+            color: #2563eb;
+        }
+        .btn-card-dossier:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        /* Forms Layout */
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 60px 5%;
+            border-top: 1px solid #e9ecef;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-container h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .form-container p {
+            color: #475569;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #475569;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        input, select, textarea {
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            color: #1a1a1a;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #0f172a;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #1e293b;
+        }
+
+        @media (max-width: 992px) {
+            .media-showcase { grid-template-columns: 1fr; aspect-ratio: auto; }
+            .photo-box { aspect-ratio: 16 / 9; }
+            .video-box { aspect-ratio: 16 / 9; }
+        }
+        @media (max-width: 768px) {
+            .hero h1, .form-container h2 { font-size: 2.2rem; }
+            nav { display: none; }
+            .roster-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Module with Logo Integration -->
+    <header>
+        <div class="logo-container">
+
+            <!-- This image tag links directly to your saved branding file -->
+            <img src="sports-logo.png" alt="R&P Elite Management Logo" class="logo-img">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Main Portfolio</a></li>
+                <li><a href="#roster">Active Roster</a></li>
+                <li><a href="#athlete-intake">Athlete Registration</a></li>
+                <li><a href="#comanagement">Co-Management Portal</a></li>
+            </ul>
+        </nav>
+        <button class="btn-header" onclick="location.href='index.html'">Back to Tech</button>
+    </header>
+
+    <!-- Strategic Philosophy Hero Section -->
+    <section class="hero">
+        <h1>Management for All Athletes</h1>
+        <p>Providing the crucial ground infrastructure, athletic verification tracking, and logistics coordination needed to transition raw African talent into elite, global professional competitors.</p>
+    </section>
+
+    <!-- Operational Pipeline Metrics -->
+    <section class="metrics-section">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Verified Registries</h3>
+                <p>100% of our athletes maintain active, officially tracking bout records on global sports databases including BoxRec, Sherdog, and Tapology.</p>
+            </div>
+            <div class="metric-card">
+                <h3>Deployment Ready</h3>
+                <p>All active roster athletes hold verified international passports and clean documentation history, optimized for rapid, short-notice booking itineraries.</p>
+            </div>
+            <div class="metric-card">
+                <h3>Pre-Compiled Medicals</h3>
+                <p>Complete athletic commission medical files—including up-to-date blood panels (HIV, Hep B/C) and specialist ophthalmologist parameters—are safely managed on file.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Roster Segment -->
+    <section class="roster-section" id="roster">
+        <div class="section-header">
+            <h2>The Athlete Roster Pipeline</h2>
+            <p>Review verified operational registries and request secure athlete background files.</p>
+        </div>
+        <div class="roster-grid">
+           
+            <!-- ATHLETE 1: REDI MABOSO -->
+            <div class="athlete-card">
+                <div class="media-showcase">
+                    <div class="photo-box"><img src="Redi.pic.png" alt="Redi Maboso"></div>
+                    <div class="video-box"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                </div>
+                <div class="athlete-info">
+                    <div class="athlete-type">Mixed Martial Arts</div>
+                    <div class="athlete-name">Redi "Durable" Maboso</div>
+                    <ul class="stats-list">
+                        <li><span>Division</span> <span>Middleweight (180 lbs)</span></li>
+                        <li><span>Official Record</span> <span>30 - 0 - 0 (20 KOs)</span></li>
+                        <li><span>Height / Reach</span> <span>6'5" / 80" (6'8) Span</span></li>
+                        <li><span>Stance</span> <span>Orthodox</span></li>
+                        <li><span>Hometown</span> <span>Kinshasa, DRC</span></li>
+                    </ul>
+                    <div class="scout-notes">
+                        <h4>Scouting Notes</h4>
+                        <p>Elite athletic foundation started at age 6. 4-time Judo Champion, 2-time MMA Champion, and Karate Champion. Possesses unstoppable grappling dominance and massive concussive finishing power.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://sherdog.com" target="_blank" class="btn-card btn-card-registry">Sherdog Registry</a>
+                    <a href="#comanagement" class="btn-card btn-card-dossier">Request Info</a>
+                </div>
+            </div>
+
+            <!-- ATHLETE 2: NARCISSE TSHISOLA -->
+            <div class="athlete-card">
+                <div class="media-showcase">
+                    <div class="photo-box"><img src="Narcisse.pic.png" alt="Narcisse Tshisola"></div>
+                    <div class="video-box"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                </div>
+                <div class="athlete-info">
+                    <div class="athlete-type">Mixed Martial Arts</div>
+                    <div class="athlete-name">Narcisse "Soda" Tshisola</div>
+                    <ul class="stats-list">
+                        <li><span>Division</span> <span>Middleweight (200 lbs)</span></li>
+                        <li><span>Official Record</span> <span>11 - 0 - 0 (8 KOs)</span></li>
+                        <li><span>Height / Reach</span> <span>6'2" / 77" (6'5) Span</span></li>
+                        <li><span>Stance</span> <span>Southpaw (Left Handed)</span></li>
+                        <li><span>Hometown</span> <span>Kinshasa, DRC</span></li>
+                    </ul>
+                    <div class="scout-notes">
+                        <h4>Scouting Notes</h4>
+                        <p>Army Veteran and former professional Rugby player. 3-time Judo Champion and MMA Champion. Tremendous physical leverage, aggressive ground pressure, and devastating southpaw striking.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://sherdog.com" target="_blank" class="btn-card btn-card-registry">Sherdog Registry</a>
+                    <a href="#comanagement" class="btn-card btn-card-dossier">Request Info</a>
+                </div>
+            </div>
+
+            <!-- ATHLETE 3: GEDEON KASOTA -->
+            <div class="athlete-card">
+                <div class="media-showcase">
+                    <div class="photo-box"><img src="Gedeon.pic.png" alt="Gedeon Kasota"></div>
+                    <div class="video-box"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                </div>
+                <div class="athlete-info">
+                    <div class="athlete-type">Mixed Martial Arts</div>
+                    <div class="athlete-name">Gedeon "Zibiyu" Kasota</div>
+                    <ul class="stats-list">
+                        <li><span>Division</span> <span>Welterweight (163 lbs)</span></li>
+                        <li><span>Official Record</span> <span>25 - 0 - 0 (10 KOs)</span></li>
+                        <li><span>Height / Reach</span> <span>6'2" / 77" (6'5) Span</span></li>
+                        <li><span>Stance</span> <span>Orthodox</span></li>
+                        <li><span>Hometown</span> <span>Kinshasa, DRC</span></li>
+                    </ul>
+                    <div class="scout-notes">
+                        <h4>Scouting Notes</h4>
+                        <p>5-time regional Judo Champion and 1-time MMA Champion. Highly technical submission grappler with clean takedown defense and a complete undercard-ready pace.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://sherdog.com" target="_blank" class="btn-card btn-card-registry">Sherdog Registry</a>
+                    <a href="#comanagement" class="btn-card btn-card-dossier">Request Info</a>
+                </div>
+            </div>
+            <!-- ATHLETE 4: KEBANO ANDERSON -->
+            <div class="athlete-card">
+                <div class="media-showcase">
+                    <div class="photo-box"><img src="Kebano.pic.png" alt="Kebano Anderson"></div>
+                    <div class="video-box"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                </div>
+                <div class="athlete-info">
+                    <div class="athlete-type">Mixed Martial Arts</div>
+                    <div class="athlete-name">Kebano "Lou" Anderson</div>
+                    <ul class="stats-list">
+                        <li><span>Division</span> <span>Welterweight (168 lbs)</span></li>
+                        <li><span>Official Record</span> <span>Active Pro Pipeline</span></li>
+                        <li><span>Height / Reach</span> <span>6'2" / 77" (6'5) Span</span></li>
+                        <li><span>Stance</span> <span>Southpaw (Left Handed)</span></li>
+                        <li><span>Hometown</span> <span>Kinshasa, DRC</span></li>
+                    </ul>
+                    <div class="scout-notes">
+                        <h4>Scouting Notes</h4>
+                        <p>2-time regional combat tournament champion. Dangerous southpaw striker with highly explosive dynamic hips and multi-tier combination volume. Optimized for short-notice international cards.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://sherdog.com" target="_blank" class="btn-card btn-card-registry">Sherdog Registry</a>
+                    <a href="#comanagement" class="btn-card btn-card-dossier">Request Info</a>
+                </div>
+            </div>
+
+            <!-- ATHLETE 5: RAYMOND TSHICHIK -->
+            <div class="athlete-card">
+                <div class="media-showcase">
+                    <div class="photo-box"><img src="Ray.pic.png" alt="Raymond Tshichik"></div>
+                    <div class="video-box"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                </div>
+                <div class="athlete-info">
+                    <div class="athlete-type">Mixed Martial Arts</div>
+                    <div class="athlete-name">Raymond "Ray" Tshichik</div>
+                    <ul class="stats-list">
+                        <li><span>Division</span> <span>Lightweight (146 lbs)</span></li>
+                        <li><span>Official Record</span> <span>11 - 0 - 0 (Elite Finish Rate)</span></li>
+                        <li><span>Height / Reach</span> <span>6'3" / 79" (6'7) Span</span></li>
+                        <li><span>Stance</span> <span>Orthodox</span></li>
+                        <li><span>Hometown</span> <span>Kinshasa, DRC</span></li>
+                    </ul>
+                    <div class="scout-notes">
+                        <h4>Scouting Notes</h4>
+                        <p>1-time MMA Champion. Possesses a rare, massive 6'7" reach advantage for the lightweight division. Masterful range control, crisp straight shots, and dominant distance trapping mechanics.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://sherdog.com" target="_blank" class="btn-card btn-card-registry">Sherdog Registry</a>
+                    <a href="#comanagement" class="btn-card btn-card-dossier">Request Info</a>
+                </div>
+            </div>
+
+            <!-- ATHLETE 6: GERMAIN KIBAMBA -->
+            <div class="athlete-card">
+                <div class="media-showcase">
+                    <div class="photo-box"><img src="Germain.pic.png" alt="Germain Kibamba"></div>
+                    <div class="video-box"><iframe src="https://youtube.com" allowfullscreen></iframe></div>
+                </div>
+                <div class="athlete-info">
+                    <div class="athlete-type">Professional Boxing</div>
+                    <div class="athlete-name">Germain "Chef de Classe" Kibamba</div>
+                    <ul class="stats-list">
+                        <li><span>Division</span> <span>Lightweight (150 lbs)</span></li>
+                        <li><span>Official Record</span> <span>2-Time African Boxing Champion</span></li>
+                        <li><span>Height / Reach</span> <span>6'0" / 74" (6'2) Span</span></li>
+                        <li><span>Stance</span> <span>Switch Hitter (Both Handed)</span></li>
+                        <li><span>Hometown</span> <span>Kinshasa, DRC</span></li>
+                    </ul>
+                    <div class="scout-notes">
+                        <h4>Scouting Notes</h4>
+                        <p>2-time Lightweight Boxing African Champion and 3-time regional champion. Seamlessly switches stances between orthodox and southpaw with high-volume punch accuracy and premier counter-striking vision.</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://boxrec.com" target="_blank" class="btn-card btn-card-registry">BoxRec Registry</a>
+                    <a href="#comanagement" class="btn-card btn-card-dossier">Request Info</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Athlete Registration Form -->
+    <section class="form-section" id="athlete-intake">
+        <div class="form-container">
+            <h2>Athlete Application Registry</h2>
+            <p>Are you a fighter in Congo ready to compete internationally? Submit your parameters directly to R&P Elite Management scouts.</p>
+           
+            <form action="mailto:ruffin@rufworldtech.com" method="GET" enctype="text/plain">
+                <div class="form-group">
+                    <label for="athlete-name">Full Legal Name</label>
+                    <input type="text" name="Athlete Name" id="athlete-name" required placeholder="e.g., Jean Mbuyi">
+                </div>
+               
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="athlete-sport">Sport Discipline</label>
+                        <select name="Discipline" id="athlete-sport">
+                            <option value="Professional Boxing">Professional Boxing</option>
+                            <option value="Mixed Martial Arts (MMA)">Mixed Martial Arts (MMA)</option>
+                            <option value="Other Olympic Sport">Other Discipline</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="athlete-passport">Do you have a Valid Passport?</label>
+                        <select name="Has Valid Passport" id="athlete-passport">
+                            <option value="Yes, Active Handheld">Yes, valid for 6+ months</option>
+                            <option value="No, Processing State">No / Currently applying</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="athlete-weight">Current Weight (kg)</label>
+                        <input type="text" name="Weight KG" id="athlete-weight" required placeholder="e.g., 84 kg">
+                    </div>
+                    <div class="form-group">
+                        <label for="athlete-record">Bout Record (Wins-Losses)</label>
+                        <input type="text" name="Current Record" id="athlete-record" required placeholder="e.g., 5-0 (4 KOs)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="athlete-details">Fighting Style & Achievements</label>
+                    <textarea name="Athlete Background Details" id="athlete-details" rows="4" required placeholder="Specify your striking or wrestling base, local championships, and video links if available..."></textarea>
+                </div>
+               
+                <button type="submit" class="btn-submit">Submit Registration Profile</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Co-Management Corporate Intake Form Component -->
+    <section class="form-section" id="comanagement">
+        <div class="form-container">
+            <h2>International Co-Management Portal</h2>
+            <p>For global promotions, matchmakers, or U.S. licensed managers seeking operational data pool access or booking inquiries.</p>
+           
+            <form action="mailto:ruffin@rufworldtech.com" method="GET" enctype="text/plain">
+                <div class="form-group">
+                    <label for="promo-name">Name / Promotion Entity</label>
+                    <input type="text" name="Promotion Entity" id="promo-name" required placeholder="e.g., Top Rank / First Round Management">
+                </div>
+                <div class="form-group">
+                    <label for="inquiry-type">Inquiry Classification</label>
+                    <select name="Inquiry Type" id="inquiry-type">
+                        <option value="Fight Booking Request">Propose Fight Booking Card Slot</option>
+                        <option value="Co-Management Partnership">U.S. Co-Management Partnership</option>
+                        <option value="Dossier Request">Request Full Athlete Medical/Visa Bio Pack</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="promo-message">Operational Request Details</label>
+                    <textarea name="Corporate Request Parameters" id="promo-message" rows="4" required placeholder="Specify target weight class parameters, dates, and promotional requirements..."></textarea>
+                </div>
+
